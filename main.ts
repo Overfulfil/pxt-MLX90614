@@ -11,7 +11,7 @@ namespace MLX90614 {
     const obTempAddr = 0x07
     const amTempAddr = 0x06
 
-    function read16(reg: NumberFormat.UInt8BE): number {
+    function read16(reg: NumberFormat.UInt8BE): NumberFormat.UInt16LE {
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8BE, true);
         let ret = pins.i2cReadNumber(addr, NumberFormat.UInt16LE, true);
         //ret |= pins.i2cReadNumber(addr, NumberFormat.UInt16LE) << 8
